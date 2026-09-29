@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>For You 🤍</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            font-family: Georgia, serif;
+            background: linear-gradient(
+                135deg,
+                #fff1f5,
+                #fce4ec,
+                #f8bbd0
+            );
+            color: #4a2935;
+            padding: 25px;
+        }
+
+        .card {
+            width: 100%;
+            max-width: 380px;
+            padding: 45px 25px;
+            background: rgba(255, 255, 255, 0.65);
+            border-radius: 30px;
+            box-shadow: 0 10px 35px rgba(100, 50, 70, 0.15);
+            backdrop-filter: blur(10px);
+        }
+
+        .heart {
+            font-size: 55px;
+            margin-bottom: 20px;
+            animation: heartbeat 1.5s infinite;
+        }
+
+        h1 {
+            font-size: 32px;
+            margin-bottom: 15px;
+        }
+
+        p {
+            font-size: 17px;
+            line-height: 1.6;
+            margin-bottom: 28px;
+        }
+
+        button {
+            border: none;
+            padding: 14px 25px;
+            border-radius: 30px;
+            background: #c2185b;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            box-shadow: 0 6px 15px rgba(194, 24, 91, 0.25);
+        }
+
+        .music-btn {
+            margin-top: 20px;
+        }
+
+        .gallery {
+    display: flex;
+    overflow-x: auto;
+    gap: 18px;
+    margin-top: 25px;
+    padding: 5px 2px 15px;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+}
+
+.gallery::-webkit-scrollbar {
+    display: none;
+}
+
+.gallery img {
+    width: 88%;
+    min-width: 88%;
+    height: 360px;
+    object-fit: cover;
+    border-radius: 25px;
+    scroll-snap-align: center;
+    box-shadow: 0 8px 20px rgba(100, 50, 70, 0.18);
+    transition: transform 0.3s ease;
+}
+
+        @keyframes heartbeat {
+            0%, 100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.15);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="card">
+
+        <div class="heart">🤍</div>
+
+        <h1>Hey You...</h1>
+
+        <p>
+            I made a little something for you.
+            <br>
+            Just tap the button below ✨
+        </p>
+
+        <button onclick="openSurprise()">
+            Open Your Surprise 💌
+        </button>
+
+    </div>
+
+    <audio id="bgMusic" loop>
+        <source src="ReelAudio-6306.mp3" type="audio/mpeg">
+    </audio>
+
+    <script>
+
+        function openSurprise() {
+
+            document.querySelector(".card").innerHTML = `
+
+                <div class="heart">💗</div>
+
+                <h1>Happy Boyfriend Day</h1>
+
+                <p>
+                    3 October ✨
+                    <br><br>
+                    This little surprise is just for you.
+                    <br>
+                    Because you are special to me. 🤍
+                </p>
+
+                <div class="gallery">
+
+                    <img src="IMG_20260929_225947.jpeg">
+                    <img src="IMG_20260929_225950.jpeg">
+                    <img src="IMG_20260929_225948.jpeg">
+                    <img src="IMG_20260929_225945.jpeg">
+                    <img src="IMG_20260929_225946.jpeg">
+                    <img src="IMG_20260929_225940.jpeg">
+
+                </div>
+
+                <button class="music-btn" onclick="toggleMusic()" id="musicBtn">
+                    🎵 Play Music
+                </button>
+<div style="margin-top:25px; font-size:16px; line-height:1.7;">
+    2026 became very special to me when I met you.
+    <br><br>
+    I don't know how I can ever explain how much I love you.
+    <br>
+    I love you so much, my dear. 🤍
+    <br><br>
+    I can't explain how scared I am of losing you.
+    <br>
+    Right now, all I want is you.
+    <br><br>
+    Even when we argue over the smallest things,
+    I still love being with you.
+    <br><br>
+    <b>ILysm. 💗</b>
+</div>
+
+                <div style="font-size:35px; margin-top:20px;">
+                    🌷✨💌✨🌷
+                </div>
+
+            `;
+        }
+
+
+        function toggleMusic() {
+
+            const music = document.getElementById("bgMusic");
+            const btn = document.getElementById("musicBtn");
+
+            if (music.paused) {
+
+                music.play();
+
+                btn.innerHTML = "⏸️ Pause Music";
+
+            } else {
+
+                music.pause();
+
+                btn.innerHTML = "🎵 Play Music";
+
+            }
+        }
+
+    </script>
+
+</body>
+</html>
